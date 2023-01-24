@@ -14,7 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::whereHas('posts')->get();
+        $categories = Category::all();
         return response()->json([
             'categories' => $categories,
         ]);

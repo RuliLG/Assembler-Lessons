@@ -23,7 +23,9 @@ class PostsController extends Controller
 
     public function postsByCategory(Category $category)
     {
-        return $category->posts;
+        return response()->json([
+            'posts' => $category->posts,
+        ]);
     }
 
     /**
@@ -51,6 +53,7 @@ class PostsController extends Controller
     public function show(Post $post)
     {
         $post->load('category');
+
         return response()->json([
             'post' => $post,
         ]);

@@ -17,4 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('categories', CategoriesController::class);
 Route::apiResource('posts', PostsController::class);
-Route::get('categories/{category}/posts', [PostsController::class, 'postsByCategory']);
+
+Route::get('categories/{category}/posts', [PostsController::class, 'postsByCategory'])
+    ->name('category.posts');
